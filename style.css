@@ -34,6 +34,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    /* Sentuhan modern */
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar {
@@ -80,15 +84,22 @@ header {
     background: #2a2a2a;
     color: #fff;
     border-radius: 4px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border: 1px solid var(--accent-color);
+    outline: none;
 }
 
 .search-box button {
     padding: 8px 15px;
-    background: var(--accent-color);
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 main {
@@ -99,9 +110,21 @@ main {
 .section-title {
     margin-bottom: 20px;
     font-size: 22px;
-    border-left: 4px solid var(--accent-color);
-    padding-left: 10px;
+    border-left: none; /* Dihapus untuk gaya modern */
+    padding-left: 0;
     text-transform: capitalize;
+    position: relative;
+}
+
+/* Gaya modern untuk judul section */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    margin-top: 8px;
+    border-radius: 2px;
 }
 
 .anime-grid {
@@ -111,15 +134,17 @@ main {
 }
 
 .anime-card {
-    background: var(--card-bg);
+    background: linear-gradient(145deg, #1f1f1f, #161616);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .anime-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.2);
 }
 
 .anime-card img {
@@ -180,6 +205,7 @@ main {
     margin-bottom: 20px;
     background: #000;
     border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .video-container iframe {
@@ -208,9 +234,6 @@ main {
     text-decoration: none;
     font-size: 14px;
     transition: 0.2s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .ep-btn:hover {
@@ -236,14 +259,14 @@ footer {
     margin-top: auto;
 }
 
-/* --- KODE TAMBAHAN UNTUK MOBILE-FRIENDLY --- */
+/* --- RESPONSIVE MOBILE FIX --- */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         gap: 15px;
     }
     .nav-links {
-        gap: 10px;
+        gap: 15px;
         font-size: 14px;
     }
     .search-box {
