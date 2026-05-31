@@ -1,4 +1,4 @@
-/* === STYLE / CSS AREA === */
+/* --- KODE ASLI ANDA --- */
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +28,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header & Navigasi */
 header {
     background-color: #000;
     padding: 15px 0;
@@ -92,7 +91,6 @@ header {
     cursor: pointer;
 }
 
-/* Main Grid & Cards */
 main {
     flex: 1;
     padding: 40px 0;
@@ -147,7 +145,6 @@ main {
     color: var(--text-muted);
 }
 
-/* Detail & Player Area */
 .detail-container {
     display: flex;
     flex-wrap: wrap;
@@ -177,7 +174,7 @@ main {
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     margin-bottom: 20px;
@@ -230,7 +227,6 @@ main {
     font-weight: bold;
 }
 
-/* Footer */
 footer {
     background: #0a0a0a;
     text-align: center;
@@ -238,5 +234,40 @@ footer {
     font-size: 14px;
     color: var(--text-muted);
     margin-top: auto;
-  }
+}
 
+/* --- KODE TAMBAHAN UNTUK MOBILE-FRIENDLY --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        gap: 10px;
+        font-size: 14px;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .search-box input {
+        flex: 1;
+    }
+    .anime-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    .detail-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail-img {
+        width: 100%;
+        max-width: 200px;
+    }
+    .detail-info {
+        min-width: 100%;
+        text-align: center;
+    }
+    .episode-list {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
