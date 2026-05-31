@@ -1,4 +1,5 @@
-/* --- MODERN & PREMIUM CSS --- */
+/* --- MODERN & PREMIUM CSS (FULL INTEGRATED) --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -89,9 +90,14 @@ header {
 }
 .search-box button:active { transform: scale(0.95); }
 
-/* Grid Modern */
+/* Main & Grid Modern */
 main { flex: 1; padding: 50px 0; }
-.section-title { margin-bottom: 30px; font-size: 24px; }
+.section-title { 
+    margin-bottom: 30px; 
+    font-size: 24px; 
+    border-left: 4px solid var(--accent-color);
+    padding-left: 12px;
+}
 
 .anime-grid {
     display: grid;
@@ -120,21 +126,59 @@ main { flex: 1; padding: 50px 0; }
 
 .anime-info { padding: 15px; }
 
-/* Detail & Player */
+/* Detail & Player Layout */
+.detail-container { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; }
+.detail-img { width: 250px; max-width: 100%; border-radius: 12px; }
+.detail-info { flex: 1; min-width: 300px; }
+
 .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    background: #000;
+}
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* Daftar Episode Modern */
+.episode-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    padding: 15px;
+    background: #161616;
+    border-radius: 12px;
 }
 
 .ep-btn {
-    background: var(--glass);
-    padding: 12px;
-    border-radius: 8px;
+    background: #262626;
+    color: #e0e0e0;
+    padding: 12px 10px;
     text-align: center;
-    transition: 0.3s;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
 }
-.ep-btn:hover { background: var(--accent-color); }
+.ep-btn:hover { background: var(--accent-color); color: #fff; transform: translateY(-3px); }
+
+.back-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Footer */
+footer { text-align: center; padding: 40px 0; color: var(--text-muted); margin-top: auto; }
 
 /* --- RESPONSIF MOBILE (OPTIMAL) --- */
 @media (max-width: 768px) {
@@ -143,13 +187,11 @@ main { flex: 1; padding: 50px 0; }
     .search-box { width: 100%; }
     .search-box input { width: 100%; }
     
-    .anime-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
+    .anime-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
     .anime-card img { height: 200px; }
     
-    .detail-container { flex-direction: column; }
-    .detail-info { text-align: center; }
+    .detail-container { flex-direction: column; align-items: center; }
+    .detail-info { text-align: center; min-width: 100%; }
+    
+    .episode-list { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
 }
