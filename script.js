@@ -1,4 +1,4 @@
-Const BASE_URL = 'https://shivraapi.my.id/otd';
+const BASE_URL = 'https://shivraapi.my.id/otd';
 const mainContent = document.getElementById('main-content');
 
 // FUNGSI FETCH API (ANTI-CORS PROXY FALLBACK)
@@ -453,4 +453,3 @@ document.getElementById('searchInput').addEventListener('keypress', function (e)
 });
 
 window.onload = loadHome;
-             
